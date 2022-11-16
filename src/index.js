@@ -4,7 +4,7 @@ import {resolve, dirname, extname} from "path";
 import changeCase from "change-case";
 import memoize from "fast-memoize";
 import {parse} from "gonzales-pe";
-import {renderSync} from "node-sass";
+import sass from "sass";
 import serialize from "babel-literal-to-ast";
 import uuid from "uuid/v4";
 
@@ -169,7 +169,7 @@ class SassVars {
     }
 
     extract() {
-        let result = renderSync({
+        let result = sass.renderSync({
             data: this._buildSassData(),
             outputStyle: "expanded",
         });
