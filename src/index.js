@@ -2,6 +2,7 @@ import {readFileSync, existsSync} from "fs";
 import {resolve, dirname, extname} from "path";
 
 import changeCase from "change-case";
+import memoize from "fast-memoize";
 import {parse} from "gonzales-pe";
 import sass from "sass";
 import serialize from "babel-literal-to-ast";
@@ -109,7 +110,7 @@ class VarLookup {
         // Each variable name is in `outputCase`.
         this._fileVars = {};
 
-        this.extractAllVars = this._extractAllVars.bind(this);
+        this.extractAllVars = memoize(this._extractAllVars.bind(this));
     }
 
     _extractAllVars(absPath) {
