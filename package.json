@@ -42,6 +42,8 @@
     "dependencies": {
         "babel-literal-to-ast": "^2.1.0",
         "change-case": "^3.1.0",
+        "core-js": "~3.25.5",
+        "fast-memoize": "^2.5.1",
         "gonzales-pe": "^4.2.4",
         "uuid": "^3.3.3"
     },
